@@ -5,4 +5,8 @@ public class Student {  // 클래스 이름 (class - 클래스를 만드는 예�
     String studentName;
     int grade;
     String address;  // 상위 4개 멤버 변수
+
+    public void showStudentInfo( ) {
+        System.out.println(studentName + "," + address);  // 이름, 주소 출력
+    }
 }
