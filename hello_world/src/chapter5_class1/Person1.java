@@ -10,6 +10,11 @@ public class Person1 {
     public Person1(String pname) {
         name = pname;    // 사람 이름을 매개변수로 입력받아서 Person 클래스를 생성하는 생성자를 구현
     }
+    public Person1(String pname, float pheight, float pweight) {
+        name = pname;
+        height = pheight;
+        weight = pweight;
+    }
 }
 
 
