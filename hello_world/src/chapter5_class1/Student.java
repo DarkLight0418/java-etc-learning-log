@@ -1,8 +1,9 @@
 package chapter5_class1;
 
-public class Student {  // 클래스 이름 (class - 클래스를 만드는 예약어)
+public class Student {
+    // public String StudentName;  // 클래스 이름 (class - 클래스를 만드는 예약어)
     int studentID;
-    String studentName;
+    private String studentName;
     int grade;
     String address;  // 상위 4개 멤버 변수
 
@@ -10,9 +11,12 @@ public class Student {  // 클래스 이름 (class - 클래스를 만드는 예�
         return studentName;   // studentName을 반환하는 get( ) 메서드 구현
     }
 
-    public void setStudentName(String name) {
-        studentName = name;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
+}
+
+    /*
 
     public static void main(String[] args) {
         Student studentAhn = new Student();
@@ -22,7 +26,7 @@ public class Student {  // 클래스 이름 (class - 클래스를 만드는 예�
         System.out.println(studentAhn.getStudentName());
     }
 }
-    /*    public void showStudentInfo( ) {
+        public void showStudentInfo( ) {
         System.out.println(studentName + "," + address);  // 이름, 주소 출력
     }
 } */
