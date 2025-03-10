@@ -1,8 +1,14 @@
-package Chapter8_inheritance.No1_inheritance_basic;
+package Chapter8_inheritance.No3_overriding;
 
 public class VIPCustomer extends Customer {  // VIPCustomer 클래스는 Customer 클래스를 상속받음
     private int agentID;
     double saleRatio;
+
+    @Override
+    public int calcPrice(int price) {
+        bonusPoint += price * bonusRatio;  // 보너스 포인트 적립
+        return price - (int) (price * saleRatio);  // 할인율을 적용한 가격 반환
+    }
 
     public VIPCustomer(int customerID, String customerName, int agentID) {
         super(customerID, customerName);
