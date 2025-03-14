@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No4_polymorphism;
+package Chapter8_inheritance.No4_5_polymorphism;
 
 // VIP 고객 정보를 관리하는 VIPCustomer 클래스
 // Customer 클래스를 상속받아 VIP 고객에게 추가 혜택을 제공

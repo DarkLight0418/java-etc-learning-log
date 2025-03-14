@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No4_polymorphism;
+package Chapter8_inheritance.No4_5_polymorphism;
 
 public class Customer {
     protected int customerID;
@@ -26,9 +26,14 @@ public class Customer {
         this.customerID = customerID;
     }
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
+
     public int calcPrice(int price) {
         bonusPoint += price * bonusRatio;
         return price;

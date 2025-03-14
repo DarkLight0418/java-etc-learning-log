@@ -1,5 +1,5 @@
 // 패키지 선언: 해당 클래스들이 속한 패키지 이름을 명시
-package Chapter8_inheritance.No4_polymorphism;
+package Chapter8_inheritance.No4_5_polymorphism;
 
 // 부모 클래스(슈퍼 클래스) Animal 선언
 class Animal {

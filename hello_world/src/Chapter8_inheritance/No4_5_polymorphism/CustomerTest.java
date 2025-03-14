@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No4_polymorphism;
+package Chapter8_inheritance.No4_5_polymorphism;
 
 public class CustomerTest {
     public static void main(String[] args) {
@@ -19,6 +19,9 @@ public class CustomerTest {
         int leePrice = customerLee.calcPrice(price);
         int kimPrice = customerKim.calcPrice(price);
 
-        System.out.println(customerLee);
+        System.out.println(customerLee.getCustomerName() + " 님이 " + leePrice + "원 지불하셨습니다.");
+        System.out.println(customerLee.showCustomerInfo());
+        System.out.println(customerKim.getCustomerName() + " 님이 " + kimPrice + "원 지불하셨습니다.");
+        System.out.println(customerKim.showCustomerInfo());
     }
 }
