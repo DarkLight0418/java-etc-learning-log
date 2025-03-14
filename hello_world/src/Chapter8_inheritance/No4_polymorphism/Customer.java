@@ -22,6 +22,13 @@ public class Customer {
         bonusRatio = 0.01;
     }
 
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
     public int calcPrice(int price) {
         bonusPoint += price * bonusRatio;
         return price;
