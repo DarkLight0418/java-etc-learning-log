@@ -1,4 +1,4 @@
-package Chapter9_AbstractClass;
+package Chapter9_AbstractClass.No1_Abstract;
 
 public class DeskTop extends Computer{
     @Override
