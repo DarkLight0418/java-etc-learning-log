@@ -1,15 +1,15 @@
 package Chapter9_AbstractClass.No3_Application;
 
-public class PlayerLevel {
+public abstract class PlayerLevel {
     public abstract void run();
     public abstract void jump();
     public abstract void turn();
     public abstract void showLevelMessage();
 
     final public void go(int count) {
-        run();;
+        run();
         for (int i = 0; i < count; i++) {
-            jump();;
+            jump();
         }
         turn();
     }
