@@ -12,7 +12,20 @@ class Student {
     public String toString() {
         return studentID + "," + studentName;
     }
+    
+    // equal() 메서드 재정의
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Student) {
+            Student std = (Student)obj;
+            if (this.studentID == std.studentID)  //  재정의한 equals() 메서드는 학생의 학번이 같으면 true 반환
+                return true;
+            else return false;
+        }
+        return false;
+    }
 }
+
 
 public class EqualsTest {
     public static void main(String[] args) {
