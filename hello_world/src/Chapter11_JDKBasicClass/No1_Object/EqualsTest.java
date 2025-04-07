@@ -24,6 +24,10 @@ class Student {
         }
         return false;
     }
+    @Override
+    public int hashCode() {
+        return studentID;
+    }
 }
 
 
@@ -57,5 +61,10 @@ public class EqualsTest {
             System.out.println("서로 동일하지 않습니다.");
     
         // 동일인이지만 인스턴스의 주소가 다른 경우
+
+        System.out.println("studentLee의 hashCode :" + studentLee.hashCode());
+        System.out.println("studentJu의 hashCode :" + studentJu.hashCode());
+        System.out.println("studentLee의 실제 주솟값 :" + System.identityHashCode(studentLee));
+        System.out.println("studentJu의 실제 주솟값 :" + System.identityHashCode(studentJu));
     }
 }
