@@ -1,4 +1,4 @@
-package Chapter11_JDKBasicClass.No1_Object;
+package Chapter11_JDKBasicClass.No2_String;
 
 class Book {
     int bookNumber;

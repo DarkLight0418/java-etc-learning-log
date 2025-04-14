@@ -1,4 +1,4 @@
-package Chapter11_JDKBasicClass.No1_Object;
+package Chapter11_JDKBasicClass.No2_String;
 
 public class StringTest2 {
     public static void main(String[] args) {
