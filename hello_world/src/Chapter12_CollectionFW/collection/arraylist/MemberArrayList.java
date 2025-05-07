@@ -1,6 +1,8 @@
 package Chapter12_CollectionFW.collection.arraylist;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import Chapter12_CollectionFW.collection.Member;
 
 public class MemberArrayList {
@@ -15,17 +17,17 @@ public class MemberArrayList {
     }
 
     public boolean removeMember(int memberID) {
-        for (int i = 0; i < arrayList.size(); i++) {
-            Member member = arrayList.get(i);  // get() 메서드로 회원을 순차적으로 가져옴
+        Iterator<Member> ir = arrayList.iterator();
+        while (ir.hasNext()) {
+            Member member = ir.next();
             int tempID = member.getMemberID();
-            if (tempID == memberID) {  //  회원 아이디가 매개변수랑 일치하면
-                arrayList.remove(i);  // 해당 회원 삭제
+            if (tempID == memberID) {
+                arrayList.remove(member);
                 return true;
             }
         }
         System.out.println(memberID + "가 존재하지 않습니다.");   // 반복문이 끝날 때까지 해당 아이디를 찾지 못한 경우
         return false;
-
     }
     // 해당 아이디를 가진 회원을 ArrayList에서 찾아 제거
 
