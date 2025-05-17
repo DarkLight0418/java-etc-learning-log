@@ -1,4 +1,4 @@
-package Chapter12_CollectionFW.map;
+package Chapter12_CollectionFW.map.hashmap;
 
 import Chapter12_CollectionFW.collection.Member;
 
