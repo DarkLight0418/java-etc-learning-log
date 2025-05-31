@@ -1,4 +1,4 @@
-package Chapter13_Lambda_and_Stream.innerclass;
+package Chapter13_Lambda_and_Stream.innerclass.innerclass;
 
 class Outer {
     int outNum = 100;

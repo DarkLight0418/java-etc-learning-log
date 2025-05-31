@@ -1,4 +1,4 @@
-package Chapter13_Lambda_and_Stream.innerclass;
+package Chapter13_Lambda_and_Stream.innerclass.innerclass;
 
 class OutClass {  // 외부 클래스
     private int num = 10;  // 외부 클래스 private 변수
