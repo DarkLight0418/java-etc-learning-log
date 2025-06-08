@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-public class TryCatchTest {
-    public static void SIUUU {
+public class TryCatchTestBefore {
+    public static void SIUUU() {
         Scanner sc = new Scanner(System.in); // 스캐너 객체
 
         System.out.println("a : ");
@@ -12,7 +12,7 @@ public class TryCatchTest {
 
     public static void main(String[] args) {
         try {
-            SIUUU siu = new SIUUU();
+            SIUUU();
         }
         catch (Exception e){
 

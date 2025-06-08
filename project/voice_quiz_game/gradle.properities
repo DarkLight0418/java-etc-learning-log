@@ -1,0 +1,8 @@
+# gradle.properties
+# 기본적으로는 비워도 문제없습니다. (프록시 없음)
+
+# Gradle이 빌드시 메모리 부족을 피하도록 옵션 추가 (권장)
+org.gradle.jvmargs=-Xmx2g
+
+# 의존성 캐시 자동 갱신
+org.gradle.caching=true
