@@ -1,4 +1,4 @@
 package Chapter15_IO.stream.reader;
 
-public class FileRreaderTest {
+public class FileReaderTest {
 }
