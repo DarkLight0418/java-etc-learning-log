@@ -1,4 +1,4 @@
-package Chapter7_Array.No4_ArrayListClass_Program;
+package chapter7_Array.No4_ArrayListClass_Program;
 
 public class StudentTest {
     public static void main(String[] args) {

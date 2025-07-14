@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No6_downCasting;
+package chapter8_inheritance.No6_downCasting;
 import java.util.ArrayList;
 
 // 상위 클래스 Animal 정의

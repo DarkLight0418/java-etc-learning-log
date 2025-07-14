@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No1_inheritance_basic;
+package chapter8_inheritance.No1_inheritance_basic;
 
 public class CustomerTest2 {
     public static void main(String[] args) {

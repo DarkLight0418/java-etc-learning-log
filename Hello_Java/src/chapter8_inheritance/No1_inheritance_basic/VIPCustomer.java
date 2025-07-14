@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No1_inheritance_basic;
+package chapter8_inheritance.No1_inheritance_basic;
 
 public class VIPCustomer extends Customer {  // VIPCustomer 클래스는 Customer 클래스를 상속받음
     private int agentID;

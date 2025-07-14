@@ -1,4 +1,4 @@
-package Chapter7_Array.No2_objectArray;
+package chapter7_Array.No2_objectArray;
 
 public class Book {
     private String bookName;

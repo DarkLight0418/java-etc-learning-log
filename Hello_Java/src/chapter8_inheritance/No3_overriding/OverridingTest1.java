@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No3_overriding;
+package chapter8_inheritance.No3_overriding;
 
 public class OverridingTest1 {
     public static void main(String[] args) {

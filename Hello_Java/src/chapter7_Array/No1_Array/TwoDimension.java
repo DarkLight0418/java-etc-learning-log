@@ -1,4 +1,4 @@
-package Chapter7_Array.No1_Array;
+package chapter7_Array.No1_Array;
 
 public class TwoDimension {
     public static void main(String[] args) {

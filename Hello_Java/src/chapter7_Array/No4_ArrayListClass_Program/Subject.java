@@ -1,4 +1,4 @@
-package Chapter7_Array.No4_ArrayListClass_Program;
+package chapter7_Array.No4_ArrayListClass_Program;
 
 public class Subject {  // Subject 클래스의 인스턴스 변수
     private String name;    // 과목 이름

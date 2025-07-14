@@ -1,4 +1,4 @@
-package Chapter7_Array.No4_ArrayListClass_Program;
+package chapter7_Array.No4_ArrayListClass_Program;
 import java.util.ArrayList;
 
 public class Student {  // Student 클래스의 인스턴스 변수

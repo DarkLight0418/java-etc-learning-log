@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No3_overriding;
+package chapter8_inheritance.No3_overriding;
 
 public class Customer {
     protected int customerID;  // 고객 아이디(이하 인스턴스 변수들)

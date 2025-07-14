@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No3_overriding;
+package chapter8_inheritance.No3_overriding;
 
 public class Temp1_20250423 {
     int num;

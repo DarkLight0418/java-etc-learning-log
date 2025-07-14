@@ -1,5 +1,5 @@
-package Chapter7_Array.No3_ArrayListClass;
-import Chapter7_Array.No2_objectArray.Book;
+package chapter7_Array.No3_ArrayListClass;
+import chapter7_Array.No2_objectArray.Book;
 import java.util.ArrayList;  // ArrayList 클래스 임포트
 
 public class ArrayListTest {

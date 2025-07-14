@@ -1,4 +1,4 @@
-package Chapter8_inheritance.No4_5_polymorphism;
+package chapter8_inheritance.No4_5_polymorphism;
 
 public class CustomerTest {
     public static void main(String[] args) {
