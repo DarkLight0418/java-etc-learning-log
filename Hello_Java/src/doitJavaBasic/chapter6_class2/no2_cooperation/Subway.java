@@ -1,4 +1,4 @@
-package chapter6_class2.no2_cooperation;
+package doitJavaBasic.chapter6_class2.no2_cooperation;
 
 public class Subway {
     String lineName;  // 전철 노선 번호

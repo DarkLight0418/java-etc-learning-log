@@ -1,4 +1,4 @@
-package chapter6_class2.no2_cooperation;
+package doitJavaBasic.chapter6_class2.no2_cooperation;
 
 public class Bus {
     int busNumber;  // 버스 번호
