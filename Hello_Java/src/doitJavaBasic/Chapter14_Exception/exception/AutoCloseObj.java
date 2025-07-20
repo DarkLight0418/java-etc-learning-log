@@ -1,4 +1,4 @@
-package Chapter14_Exception.exception;
+package doitJavaBasic.Chapter14_Exception.exception;
 
 public class AutoCloseObj implements AutoCloseable {
     @Override

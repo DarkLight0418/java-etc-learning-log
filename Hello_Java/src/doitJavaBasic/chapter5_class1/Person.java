@@ -1,4 +1,4 @@
-package doitJavaBasic.files.chapter5_class1;
+package doitJavaBasic.chapter5_class1;
 
 public class Person {
     String name;  // 이름

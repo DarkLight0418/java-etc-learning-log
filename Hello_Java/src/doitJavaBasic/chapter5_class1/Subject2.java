@@ -1,4 +1,4 @@
-package doitJavaBasic.files.chapter5_class1;
+package doitJavaBasic.chapter5_class1;
 
 public class Subject2 {
     private String subjectName;

@@ -1,4 +1,4 @@
-package doitJavaBasic.files.chapter5_class1;
+package doitJavaBasic.chapter5_class1;
 
 public class Student {
     // public String StudentName;  // 클래스 이름 (class - 클래스를 만드는 예약어)

@@ -1,4 +1,4 @@
-package doitJavaBasic.files.chapter6_class2.no2_cooperation;
+package doitJavaBasic.javaFiles.chapter6_class2.no2_cooperation;
 
 public class TakeTrans {
     public static void main(String[] args) {

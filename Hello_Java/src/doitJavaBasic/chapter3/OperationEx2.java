@@ -1,4 +1,4 @@
-package doitJavaBasic.files.chapter3;
+package doitJavaBasic.javaFiles.chapter3;
 
 public class OperationEx2 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package doitJavaBasic.files.chapter5_class1.encapsulation;
+package doitJavaBasic.chapter5_class1.encapsulation;
 
 public class Phone {
     private String model;

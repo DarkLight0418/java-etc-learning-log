@@ -1,4 +1,4 @@
-package doitJavaBasic.files.chapter5_class1;
+package doitJavaBasic.chapter5_class1;
 
 public class FunctionTest {
     public static void main(String[] args) {

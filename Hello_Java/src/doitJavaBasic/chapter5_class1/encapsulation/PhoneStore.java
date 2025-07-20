@@ -1,4 +1,4 @@
-package doitJavaBasic.files.chapter5_class1.encapsulation;
+package doitJavaBasic.chapter5_class1.encapsulation;
 
 public class PhoneStore {
     private Phone phone;  // phone : 대리점에서 판매하는 핸드폰을 의미하는 Phone의 객체
