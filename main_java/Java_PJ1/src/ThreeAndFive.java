@@ -12,9 +12,9 @@ public class ThreeAndFive {
             int su = sc.nextInt();
             tenNumber[i] = su;
             if (tenNumber[i] % 3 == 0) {
-                ++index3;
+                index3++;
             } else if (tenNumber[i] % 5 == 0) {
-                ++index5;
+                index5++;
             }
         }
 
