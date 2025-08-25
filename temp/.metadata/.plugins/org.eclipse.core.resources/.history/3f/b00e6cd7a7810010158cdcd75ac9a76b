@@ -1,0 +1,22 @@
+package board.mvc.control;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/BoardController")
+public class BoardController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void service(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException {
+		// 기본 서비스 로직
+	}
+	private void forwardToList(HttpServletRequest request, 
+			HttpServletResponse response) throws ServletException, IOException{
+		
+	}
+}

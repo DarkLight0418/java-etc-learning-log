@@ -1,0 +1,45 @@
+package educationBoard.mvc.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import educationBoard.mvc.domain.EducationBoard;
+
+public class EducationBoardDAO {
+	private DataSource ds;
+	public EducationBoardDAO() {
+		try {
+			Context initContext = new InitialContext();
+			Context envContext = (Context) initContext.lookup("java:comp/env");
+			ds = (DataSource) envContext.lookup("jdbc/TestDB");
+		} catch (NamingException ne) {
+			System.out.println("naming 예외 발생 : " + ne);
+		}
+	}
+	
+	public ArrayList<EducationBoard> list() {
+		ArrayList<EducationBoard> list = new ArrayList<>();
+		
+		// String sql = EducationBoardSQL.LIST;
+		
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+			while (rs.next()) {
+				EducationBoard eb = new EducationBoard();
+				// eb set(rs.get());
+			}
+		} catch (SQLException se) {
+			System.out.println("SQL 예외 : " + se);
+		}
+		return list;
+	}
+}

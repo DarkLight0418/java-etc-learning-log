@@ -1,0 +1,8 @@
+package educationBoard.mvc.model;
+
+import java.util.ArrayList;
+
+
+public class BoardService {
+	private E
+}

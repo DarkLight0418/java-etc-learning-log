@@ -1,0 +1,5 @@
+package educationBoard.mvc.model;
+
+public class BoardService {
+
+}
