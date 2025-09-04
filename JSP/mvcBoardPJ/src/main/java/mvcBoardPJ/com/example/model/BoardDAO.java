@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.time.LocalDateTime;
 
 import javax.naming.Context;
@@ -63,35 +63,34 @@ public class BoardDAO {
 			}
 		}
 	}
-	Post loadPost(String postId) {
+	Post loadPost(long postId) {
 		try (Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(ZipSQL.POST_LOAD)) {
 			
-			pstmt.setString(1, postId);
+			pstmt.setLong(1, postId);
 			
 			try (ResultSet rs = pstmt.executeQuery()){
 				
-				if (!rs.next()) {
-					return null;
-				}
+				if (!rs.next()) return null;
 				
 				Post p = new Post();
 				p.setPostId(rs.getLong("post_id"));
 				p.setBoardId(rs.getInt("board_id"));
-				p.setEmail(rs.getString("author_email"));
+				p.setEmail(rs.getString("email"));
 				p.setTitle(rs.getString("title"));
-				p.setContent(rs.getString("content_html"));
+				p.setContent(rs.getString("content"));
+				
+			
+				p.setCreatedDate(rs.getDate("created_at"));
+				p.setUpdatedDate(rs.getDate("updated_at"));
 				
 				/*
-				post.setCreateDate(rs.getDate("created_at"));
-				post.setUpdateDate(rs.getDate("updated_at"));
-				*/
-				
 				java.sql.Timestamp cts = rs.getTimestamp("created_at");
 				if (cts != null) p.setCreatedDate(cts.toLocalDateTime());
 				
 				java.sql.Timestamp uts = rs.getTimestamp("updated_at");
 				if (uts != null) p.setUpdatedDate(uts.toLocalDateTime());
+				*/
 				
 				return p;
 			}
@@ -115,17 +114,30 @@ public class BoardDAO {
 					String authorEmail = rs.getString(3);
 					String title = rs.getString(4);
 					String content = rs.getString(5);
-					LocalDateTime createdDate = rs.getTimestamp(6).toLocalDateTime();
-					LocalDateTime updatedDate = rs.getTimestamp(7).toLocalDateTime();
+					Date createdDate = rs.getDate(6);
+					Date updatedDate = rs.getDate(7);
 					
 					list.add(new Post(postId, boardId, authorEmail, title, content, createdDate, updatedDate));
 				}
 			}
-			
-		} catch (SQLException se) {
-			
+		} catch (SQLException se) {	
 		}
-		
 		return list;
+	}
+	
+	boolean insert(Post dto) {
+		
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(ZipSQL.INSERT_POST)){
+			pstmt.setString(1, dto.getEmail());
+			pstmt.setString(2, dto.getTitle());
+			pstmt.setString(3, dto.getContent());
+			
+			int i = pstmt.executeUpdate();
+			if (i > 0) return true;
+			else return false;
+		} catch (SQLException se) {
+			return false;
+		}
 	}
 }

@@ -13,5 +13,7 @@
 	<a href="/mvcBoardPJ">인덱스로</a><br>
 	<a href="/mvcBoardPJ/board.do?type=login">로그인으로</a>
 	<a href="<%= request.getContextPath() %>/board.do?type=list">게시판으로</a>
+	
+	<!-- request.getContextPath() == /mvcBoardPJ -->
 </body>
 </html>

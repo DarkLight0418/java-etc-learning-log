@@ -19,4 +19,12 @@ public class PostService {
 	public ArrayList<Post> getPostList() {
 		return boardDao.getList();
 	}
+	
+	public Post loadPost(long postId) {
+		return boardDao.loadPost(postId);
+	}
+	
+	public boolean insertPost(Post dto) {
+		return boardDao.insert(dto);
+	}
 }

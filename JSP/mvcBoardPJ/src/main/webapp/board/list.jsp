@@ -8,41 +8,61 @@
 
 <meta http-equiv="content-Language" content="ko">
 <meta charset="UTF-8">
-<title>게시판 (EL)</title>
+<title>게시판</title>
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/test.css"/>
 </head>
+
+
+
 <body>
-	<h1>
-		게시판 (EL)
-	</h1>
-	<a href="input.jsp">글쓰기(구현X)</a>
-	<a href="index.jsp">인덱스</a>
-	<a href="<%= request.getContextPath() %>/board.do?type=login">로그인</a>
+	<div class="actions">
+		<h1>게시판</h1>
+	</div>
+	<div class="actions">
+		<a class="btn" href="<%= request.getContextPath() %>/board.do?type=insert">글쓰기(구현X)</a>
+		<a class="btn" href="index.jsp">인덱스</a>
+		<a class="btn" href="<%= request.getContextPath() %>/board.do?type=login">로그인</a>
+	</div>
 	
-	
-	<table border='1' cellpadding='7' cellspacing='2' width='50%'>
-		<tr>
-			<th>글번호</th>
+	<table align="center" border='1' cellpadding='6' cellspacing='2' width='100%'>
+		<colgroup>
+			<col width="20%">
+			<col width="40%">
+			<col width="15%">
+			<col width="15%">
+			<col width="5%">
+			<col width="5%">
+		</colgroup>
+		<tr height="10px">
 			<th>작성자(이메일)</th>
 			<th>글제목</th>
 			<th>작성시각</th>
 			<th>수정시각</th>
+			<th>수정</th>
+			<th>삭제</th>
 		</tr>
 
 	<c:if test="${empty list}">
 		<tr>
-			<td align='center' colspan="4">데이터가 하나도 없습니다..ㅜㅠ</td>
+			<td align='center' colspan="6">데이터가 하나도 없습니다..ㅜㅠ</td>
 		</tr>
 	</c:if>
 	
-	<!-- Post의 getter와 동일하게 필드명 맞춰줍시다 -->
 	
 	<c:forEach items="${list}" var="post">
 		<tr>
-			<td align="center">${post.postId}</td>
+			<!-- Post의 getter와 동일하게 필드명 맞춰줍시다 -->
+			<c:url var="viewUrl" value="/board.do">
+				<c:param name="type" value="view"/>
+				<c:param name="post" value="${post.postId}"/>
+			</c:url>
 			<td>${post.email}</td>
-			<td>${post.title}</td>
-			<td><c:out value="${post.createdDateStr}"/></td>
-			<td><c:out value="${post.updatedDateStr}"/></td>
+			<td><a href="${viewUrl}"><c:out value="${post.title}"/></a></td>
+			<td><c:out value="${post.createdDate}"/></td>
+			<td><c:out value="${post.updatedDate}"/></td>
+			<td>수정</td>
+			<td>삭제</td>
 		</tr>
 	</c:forEach>
 	</table>

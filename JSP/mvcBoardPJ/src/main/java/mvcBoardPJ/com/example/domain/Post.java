@@ -1,6 +1,6 @@
 package mvcBoardPJ.com.example.domain;
 
-import java.sql.Date;
+import java.util.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -10,13 +10,13 @@ public class Post {
 	private String email;
 	private String title;
 	private String content;
-	private LocalDateTime createdDate;
-	private LocalDateTime updatedDate;
+	private Date createdDate;
+	private Date updatedDate;
 	
 	public Post() {}
 	
-	public Post(long postId, int boardId, String email, String title, String content, LocalDateTime createdDate,
-			LocalDateTime updatedDate) {
+	public Post(long postId, int boardId, String email, String title, String content, Date createdDate,
+			Date updatedDate) {
 		super();
 		this.postId = postId;
 		this.boardId = boardId;
@@ -29,6 +29,8 @@ public class Post {
 	
 	private static final DateTimeFormatter DT_FMT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
+	
+	/*
 	public String getCreatedDateStr() {
 		return createdDate != null ? createdDate.format(DT_FMT) : "";
 	}
@@ -36,6 +38,7 @@ public class Post {
 	public String getUpdatedDateStr() {
 		return updatedDate != null ? updatedDate.format(DT_FMT) : "";
 	}
+	*/
 	
 	public long getPostId() {
 		return postId;
@@ -77,22 +80,19 @@ public class Post {
 		this.content = content;
 	}
 
-	public LocalDateTime getCreatedDate() {
+	public Date getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(LocalDateTime createdDate) {
-		this.createdDate = createdDate;
+	public void setCreatedDate(Date date) {
+		this.createdDate = date;
 	}
 
-	public LocalDateTime getUpdatedDate() {
+	public Date getUpdatedDate() {
 		return updatedDate;
 	}
 
-	public void setUpdatedDate(LocalDateTime updateDate) {
+	public void setUpdatedDate(Date updateDate) {
 		this.updatedDate = updatedDate;
 	}
-	
-	
-	
 }
