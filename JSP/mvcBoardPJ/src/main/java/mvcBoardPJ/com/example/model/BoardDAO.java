@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.time.LocalDateTime;
@@ -129,15 +130,75 @@ public class BoardDAO {
 		
 		try (Connection conn = ds.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(ZipSQL.INSERT_POST)){
-			pstmt.setString(1, dto.getEmail());
-			pstmt.setString(2, dto.getTitle());
-			pstmt.setString(3, dto.getContent());
+			pstmt.setInt(1, dto.getBoardId());
+			pstmt.setString(2, dto.getEmail());
+			pstmt.setString(3, dto.getTitle());
+			pstmt.setString(4, dto.getContent());
+			
+			Timestamp now = new Timestamp(System.currentTimeMillis());
+			// 현재 시각임
+			pstmt.setTimestamp(5, now);
+			pstmt.setTimestamp(6, now);
 			
 			int i = pstmt.executeUpdate();
-			if (i > 0) return true;
+			if (i == 1) {
+				try (ResultSet rs = pstmt.getGeneratedKeys()) {
+					if (rs.next()) dto.setPostId(rs.getLong(1));
+				}
+				return i == 1;
+			}
 			else return false;
 		} catch (SQLException se) {
 			return false;
+		}
+	}
+	
+	
+	// 멤버 조회 및 회원가입 로직 (나중에 분리할 필요있음)
+	
+	public int insertMember(String email, String nickname, String password) {
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(ZipSQL.INSERT_MEMBER)) {
+			
+			pstmt.setString(1, email);
+			pstmt.setString(2, nickname);
+			pstmt.setString(3, password);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (SQLException se) {
+			System.out.println("이메일 중복됨(회원가입 불가) 예외 : " + se);
+			return 0;  // 업데이트문 성공 1, 실패 0
+		}
+	}
+	
+	public boolean existByEmail(String email) {
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(ZipSQL.EXIST_EMAIL)) {
+			pstmt.setString(1, email);
+			
+			try (ResultSet rs = pstmt.executeQuery()) {
+				return rs.next();
+			}
+		} catch (SQLException se) {
+			System.out.println("이메일 존재 여부 SQL 예외 발생 : " + se);
+			return false;
+		}
+	}
+	
+	public String findPasswordByEmail(String email) {
+		try (Connection conn = ds.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(ZipSQL.ID_PW_COLLECT)) {
+			pstmt.setString(1, email);
+			
+				try (ResultSet rs = pstmt.executeQuery()) {
+					if (!rs.next()) return null;
+					return rs.getString(1);
+				}
+			
+		} catch (SQLException se) {
+			System.out.println("비밀번호 조회 실패 - 예외 발생 : " + se);
+			return null;
 		}
 	}
 }

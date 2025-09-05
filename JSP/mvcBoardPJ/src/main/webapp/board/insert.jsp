@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>게시글 입력 폼</h1>
-	<form action="board.do?type=insert" method="post">
+	<form action="${pageContext.request.contextPath}/board.do?type=insert" method="post">
 		<table>
 			<tr>
 				<th>이메일</th>

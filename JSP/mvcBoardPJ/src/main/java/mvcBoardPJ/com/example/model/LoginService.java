@@ -18,25 +18,26 @@ public class LoginService {
 	
 	public Member getLoginInfos(String id) {
 		Member m = boardDao.getLoginInfo(id);
-		m.setPwdHash("");
-		
 		return m;
 	}
 	
-	public String check(String id, String password_hash) {
+	public String check(String id, String password_temp) {
 		Member m = boardDao.getLoginInfo(id);
 		
 		if (m == null) {
 			return "null";
 		} else {
 			String dbPwd = m.getPwdHash();
-			if (dbPwd != null) dbPwd.trim();
-			
-			if (!dbPwd.equals(password_hash)) {
+			if (dbPwd != null) dbPwd = dbPwd.trim();
+			if (!dbPwd.equals(password_temp)) {
 				return "pwdError";
 			} else {
 				return "success";
 			}
 		}
+	}
+	public boolean register(String email, String nickname, String password) {
+		if (boardDao.existByEmail(email)) return false;
+		return boardDao.insertMember(email, nickname, password) == 1;
 	}
 }

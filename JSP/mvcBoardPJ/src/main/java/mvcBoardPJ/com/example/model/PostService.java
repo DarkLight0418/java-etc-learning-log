@@ -6,6 +6,7 @@ import mvcBoardPJ.com.example.domain.Post;
 
 public class PostService {
 	private static final PostService instance = new PostService();
+	
 	private BoardDAO boardDao;
 	
 	public PostService() {

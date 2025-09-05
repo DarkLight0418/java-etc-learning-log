@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* 전체 레이아웃 */
+form {
+    width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-family: "맑은 고딕", Arial, sans-serif;
+}
+
+/* 표 대신 깔끔한 폼 구조 */
+form label {
+    display: block;
+    font-weight: bold;
+    margin: 12px 0 6px;
+    color: #333;
+}
+
+/* 텍스트 입력 */
+form input[type="text"],
+form input[type="password"],
+form textarea,
+form input[type="file"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* 버튼 영역 */
+form .btn-group {
+    margin-top: 20px;
+    text-align: center;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
+    padding: 8px 16px;
+    margin: 0 6px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* 전송 버튼 */
+form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* 다시 입력 버튼 */
+form input[type="reset"] {
+    background-color: #f1f1f1;
+    color: #333;
+}
+form input[type="reset"]:hover {
+    background-color: #ddd;
+}

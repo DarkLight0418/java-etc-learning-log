@@ -92,7 +92,7 @@ public class Post {
 		return updatedDate;
 	}
 
-	public void setUpdatedDate(Date updateDate) {
+	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
 }

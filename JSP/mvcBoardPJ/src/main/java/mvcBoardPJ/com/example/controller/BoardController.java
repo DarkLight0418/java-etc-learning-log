@@ -11,6 +11,8 @@ import mvcBoardPJ.com.example.model.LoginService;
 import mvcBoardPJ.com.example.model.PostService;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -34,11 +36,17 @@ public class BoardController extends HttpServlet {
 			type = type.trim();
 			switch(type) {
 				case "login": goLogin(request, response); break;
-				case "check": check(request, response); break;
 				case "board": goBoard(request, response); break;
 				case "list": goList(request, response); break;
 				case "view": goView(request, response); break;
-				case "insert": insert(request, response); break;
+				case "insert": 
+					if ("GET".equalsIgnoreCase(request.getMethod())) {
+						RequestDispatcher rd = request.getRequestDispatcher("/board/insert.jsp");
+						rd.forward(request, response);
+					} else{
+						insert(request, response);  
+					}
+					break;
 				default: response.sendRedirect("index.jsp");
 			}
 		} else {
@@ -51,31 +59,6 @@ public class BoardController extends HttpServlet {
 		String login = "/login/login.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(login);
 		rd.forward(request, response);
-	}
-	
-	private void check(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		String id = request.getParameter("id");
-		String pwdHash = request.getParameter("pwd");
-		
-		if (id == null || pwdHash == null) {
-			request.setAttribute("errorMsg", "아이디 비밀번호를 입력하세요");
-			RequestDispatcher rd = request.getRequestDispatcher("/login/login.jsp");
-			rd.forward(request, response);
-		}
-		
-		LoginService service = LoginService.getInstance();   // new LoginService() 안써도 된다!
-		String result = service.check(id, pwdHash);
-		System.out.println("@로그인 컨트롤러 결과 : " + result);
-		
-		if (result == "success") {
-			String success = "/login/successLogin.jsp";
-			RequestDispatcher rd = request.getRequestDispatcher(success);
-			rd.forward(request, response);
-		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("/login/failLogin.jsp");
-			rd.forward(request, response);
-		}
 	}
 	
 	private void goBoard(HttpServletRequest request, HttpServletResponse response) 
@@ -124,22 +107,36 @@ public class BoardController extends HttpServlet {
 	
 	private void insert(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
+		String boardId = request.getParameter("board_id");
 		String email = request.getParameter("email");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
 		PostService postService = PostService.getInstance();
 		
-		Post dto = new Post(-1, 0, email, title, content, null, null);
+		Post dto = new Post();
 		
+		boolean ok = postService.insertPost(dto);
+		
+		if (ok) {
+			response.sendRedirect(request.getContextPath() + "/board.do?type=list");
+		} else {
+			request.setAttribute("error", "등록에 실패했습니다..");
+			request.getRequestDispatcher("/board/insert.jsp").forward(request, response);
+		}
+		
+		/* 나중에 웹 알림창으로 띄울 때 쓰기
 		boolean flag = postService.insertPost(dto);
 		request.setAttribute("flag", flag);
 		request.setAttribute("kind", "insert");
+		*/
 		
+		/*
 		String input = "/board/insert.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(input);
 		rd.forward(request, response);
-	
+		ㄴ 필요없지만 임시로 남겨둠
+		*/
 	}
 	
 	
